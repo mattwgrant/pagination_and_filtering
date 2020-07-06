@@ -60,7 +60,7 @@ let body = document.getElementsByTagName('body')[0];
 ***/
 
 body.addEventListener('click', () => {
-  let div = document.getElementsByTagName('div')[1];
+  let div = document.querySelector('.page');
   let newDiv = document.createElement('DIV');
   newDiv.className = 'pagination'
   div.appendChild(newDiv)
