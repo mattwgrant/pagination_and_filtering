@@ -1,0 +1,1 @@
+This project, while still functioning without JavaScript, demonstrates pagination.
