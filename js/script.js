@@ -73,7 +73,7 @@ showPage(studentList, 1);
 ***/
 
 /***
-  
+  This is the start of my search functionality.
  ***/
 function createSearch() {
   let inputDiv = document.createElement('DIV');
