@@ -43,7 +43,7 @@ function showPage(list, page) {
       studentList[i].style.display = 'none';
     }
   }
-}
+};
 
 showPage(studentList, 1);
 
@@ -75,7 +75,43 @@ showPage(studentList, 1);
 /***
   
  ***/
+function createSearch() {
+  let inputDiv = document.createElement('DIV');
+  inputDiv.className = 'student-search';
+  let pageHeader = document.querySelector('.page-header');
+  pageHeader.appendChild(inputDiv);
+  let input = document.createElement('INPUT');
+  input.placeholder = 'Search for students...'
+  input.textContent = input.value.textContent
+  inputDiv.appendChild(input);
+  let button = document.createElement('BUTTON');
+  button.textContent = 'Search';
+  inputDiv.appendChild(button);
+
+
+ 
+
+  button.addEventListener('click', () => {
+    for ( let i = 0; i < studentList.length; i++ ) {
+
+      if ( input.textContent == studentList[i]) {
+        showPage(studentList, 1)
+      // } else {
+        
+      }
+    }
+  });
+
+  // input.addEventListener('keyup' () => {
+
+  // });
+
+};
+
+
+
 function appendPageLinks(list) {
+
 
   let div = document.querySelector('div.page');
   let newDiv = document.createElement('DIV');
@@ -106,6 +142,7 @@ function appendPageLinks(list) {
         showPage(studentList, a.textContent)
     });
   }
+  createSearch();
 };
 
 appendPageLinks(studentList);
