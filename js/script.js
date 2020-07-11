@@ -3,9 +3,6 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
    
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-
-
 /*** 
    I set my two global variables here so that they can be used throughout my functions.
 
@@ -14,11 +11,9 @@ FSJS project 2 - List Filter and Pagination
 
    Second, I craete pageItems which is simply the number of items that I want to display on each page.
 ***/
+
 let studentList = document.querySelectorAll('.student-item.cf');
 let pageItems = 10;
-
-
-
 
 
 /*** 
@@ -69,9 +64,10 @@ showPage(studentList, 1);
    starts at 0 and there is no 0 page. I then set the first page to active before my event handler so that the proper link
    is highlighted when the web page is loaded.
 
-   For my event handler, I target the anchor elements and set the events to fire with a click. I put in the parament e which
-   is for the event. This way I can use the target method to set the event to fire on whichever anchor element is clicked. 
-   I next do a for loop to go through all of the elements and clear out all of the class names. Finally, the target of the
+   For my event handler, I target the anchor elements and set the events to fire with a click. I put in the parameter 'e' which
+   is for the event listener. This way I can use the target method to set the event to fire on whichever anchor element is clicked. 
+   I next do a for loop to go through all of the elements and clear out all of the class names, setting a new variable, links, 
+   which I use to select all anchor elements on the page so that they can be run through in the loop. Finally, the target of the
    event has it's class name set to 'active' and then the showPage function is called to display the set of students that 
    correspond to that page number.
 ***/
@@ -99,18 +95,19 @@ function appendPageLinks(list) {
       document.querySelector('a').className = 'active';
 
       a.addEventListener('click', (e) => {
-        for ( let i = 0; i < numberOfLinks.length; i++ ) {
-          a.className = '';
-        }
+        let links = document.querySelectorAll('a');
+        for ( let j = 0; j < numberOfLinks; j++ ) {
+          links[j].className = '';
           if ( e.target ) {
-            a.className = 'active';
-        } 
-      showPage(studentList, a.textContent)
+            e.target.className = 'active';
+          }
+        }
+        
+        showPage(studentList, a.textContent)
     });
   }
-  
-  
 };
+
 appendPageLinks(studentList);
 
 
